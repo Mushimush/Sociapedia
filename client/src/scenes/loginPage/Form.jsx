@@ -62,7 +62,6 @@ const Form = () => {
       formData.append(value, values[value]);
     }
     formData.append("picturePath", values.picture.name);
-
     const savedUserResponse = await fetch(
       "http://localhost:3001/auth/register",
       {
@@ -71,7 +70,8 @@ const Form = () => {
       }
     );
     const savedUser = await savedUserResponse.json();
-    onSubmitProps.resetForm();
+    console.log("🚀 ~ file: Form.jsx:73 ~ register ~ savedUser:", savedUser);
+    // onSubmitProps.resetForm();
 
     if (savedUser) {
       setPageType("login");
